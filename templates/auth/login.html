@@ -1,12 +1,39 @@
-<!DOCTYPE html>
-<head>
-    <title>логин</title>
-</head>
-<body>
-    <form method="post">
-        <input type="text" name="login">
-        <input type="password" name="password">
-        <input type="submit" value="Войти">
-    </form>
-    <button onclick="document.location='/register'">Зарегистрироваться</button>
-</body>
+{% extends 'layouts/base.html' %}
+
+{% import 'macros/form_fields.html' as fields %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/macros/form_fields.css">
+    <link rel="stylesheet" href="/static/css/auth/auth.css">
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="auth-wrapper">
+        <div class="auth-form">
+            <h1 class="auth-form__header">Вход</h1>
+    
+            <form class="auth-form__form" id="authForm" method="post">
+                {{ fields.input(label="Логин", id="login", name="login", placeholder="Логин", required=True) }}
+                {{ fields.input(label="Пароль", id="password", name="password", placeholder="Пароль", type="password", required=True) }}
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="flash-messages">
+                            {% for category, message in messages %}
+                                <div class="flash-message flash-{{ category }}">
+                                    <span class="flash-text">{{ message }}</span>
+                                </div>  
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </form>
+            
+            <button class="auth-form__confirm-button accent" form="authForm">Войти</button>
+            <p class="auth-form__link">Нет аккаунта? <a href="/register">Регистрация</a></p>
+        </div>
+    </div>
+{% endblock %}
