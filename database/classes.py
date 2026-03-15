@@ -12,6 +12,8 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
     login = db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
+    surname = db.Column(db.String, nullable=False)
     active = db.Column(db.Boolean)
     fs_uniquifier = db.Column(db.String, unique=True)
 

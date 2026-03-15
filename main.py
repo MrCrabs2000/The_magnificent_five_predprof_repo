@@ -5,6 +5,7 @@ from pathlib import Path
 from routs.routs import register_all_blueprints
 from configs.configs import app
 from utils.migrate import drop_alembic_version_table, update_database
+from database.init_db import create_initial_admin
 
 
 register_all_blueprints(app)
@@ -16,6 +17,7 @@ try:
         drop_alembic_version_table(app)
 
     update_database(app)
+    create_initial_admin(app)
 
 except Exception as e:
     print(f'У нас ошибка в функции поймана:{e}')
