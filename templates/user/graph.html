@@ -1,0 +1,19 @@
+{% extends 'layouts/graph_layout.html' %}
+
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/user/graph.css">
+{% endblock %}
+
+
+{% block sidebar %}
+    <nav class="graphs-nav">
+        <ul class="graphs-list">
+            <li><a href="">График точности</a></li>
+            <li><a href="">Диаграмма записей</a></li>
+            <li><a href="">Диаграмма точности</a></li>
+            <li><a href="">Топ-5 классов</a></li>
+        </ul>
+    </nav>
+{% endblock %}

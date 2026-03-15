@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/layouts/graph_layout.css">
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="graph-layout-wrapper">
+        <div class="graph-sidebar block">
+            <div class="graph-sidebar__title">Аналитика</div>
+
+            <div class="graph-sidebar__content">
+                {% block sidebar %}
+                
+                {% endblock %}
+            </div>
+        </div>
+
+        <div class="graph-content">
+            {% block graph_content %}
+                
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

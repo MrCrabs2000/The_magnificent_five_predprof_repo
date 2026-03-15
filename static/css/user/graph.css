@@ -1,0 +1,26 @@
+.graphs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0 8px;
+    padding: 0;
+    list-style: none;
+}
+
+.graphs-list > li {
+    padding: 4px 8px;
+    border-radius: var(--border-radius);
+
+    &:hover {
+        background: hsla(0, 0%, 50%, 0.08);
+    }
+}
+
+
+.graphs-list > li > a {
+    color: var(--text-muted);
+
+    &:hover {
+        text-decoration: none;
+    }
+}
