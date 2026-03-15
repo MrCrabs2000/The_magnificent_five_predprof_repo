@@ -1,4 +1,4 @@
-from routs.auth.login import login_page
+from routes.auth.login import login_page
 
 
 def register_all_blueprints(app):
