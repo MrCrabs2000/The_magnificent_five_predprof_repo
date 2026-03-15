@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+
+
+{% import 'macros/form_fields.html' as fields %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/macros/form_fields.css">
+    <link rel="stylesheet" href="/static/css/user/profile.css">
+{% endblock %}
+
+
+{% block content %}
+    <div class="profile-wrapper">
+        <div class="profile block">
+
+            <h1 class="profile__title">Профиль</h1>
+
+            <div class="profile__fields">
+                {{ fields.input(label="Логин", readonly=True, value=user.login, name="login") }}
+                {{ fields.input(label="Фамилия", readonly=True, value=user.surname, name="surname") }}
+                {{ fields.input(label="Имя", readonly=True, value=user.name, name="name") }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -151,3 +151,9 @@ a {
 .content {
     flex: 1 1;
 }
+
+.block {
+    background: var(--bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
