@@ -8,8 +8,9 @@ db = SQLAlchemy()
 class User(db.Model, UserMixin):
     __tablename__ = "users"
 
-
     id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
+    name = db.Column(db.String, nullable=False)
+    surname = db.Column(db.String, nullable=False)
     login = db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
     active = db.Column(db.Boolean)
@@ -32,3 +33,27 @@ class AssociationUserRole(db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', name='userroles_users', ondelete='CASCADE'), primary_key=True)
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id', name='userroles_roles', ondelete='CASCADE'), primary_key=True)
+
+
+class Civilization(db.Model):
+    _tablename_ = 'civilizations'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
+
+    records = db.relationship('Record', secondary='civilization_records', back_populates='civilizations')
+
+
+class Record(db.Model):
+    _tablename_ = 'records'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
+    type = db.Column(db.Integer, nullable=False)
+
+    civilization = db.relationship('Civilization', secondary='civilization_records', back_populates='records')
+
+
+class  AssociationCivilizationRecord(db.Model):
+    __tablename__ = 'civilization_records'
+
+    civilization_id = db.Column(db.Integer, db.ForeignKey('civilizations.id', name='civilizationrecords_civilizations', ondelete='CASCADE'), primary_key=True)
+    record_id = db.Column(db.Integer, db.ForeignKey('records.id', name='civilizationrecords_records', ondelete='CASCADE'), primary_key=True)
