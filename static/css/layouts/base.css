@@ -36,7 +36,7 @@ html, body {
     background: var(--bg-dark);
 }
 
-button, a.button {
+button, .button {
     display: inline-block;
     padding: 8px 16px;
     color: var(--text);
@@ -124,8 +124,8 @@ select {
 
 input:read-only, textarea:read-only, select:disabled {
     color: var(--text-muted);
-    background: var(--bg-not-active) !important;
-    border: var(--border) !important;
+    background: var(--bg-not-active);
+    border: var(--border);
     cursor: default;
     caret-color: transparent;
 }
@@ -150,4 +150,10 @@ a {
 
 .content {
     flex: 1 1;
+}
+
+.block {
+    background: var(--bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }

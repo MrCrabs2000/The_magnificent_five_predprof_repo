@@ -1,0 +1,19 @@
+.upload-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.upload {
+    width: 300px;
+    padding: 8px 16px 16px 16px;
+}
+
+.upload__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 12px;
+    padding: 0;
+}

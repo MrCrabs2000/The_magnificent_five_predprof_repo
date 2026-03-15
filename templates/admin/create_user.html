@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+
+{% import 'macros/form_fields.html' as fields %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/macros/form_fields.css">
+    <link rel="stylesheet" href="/static/css/admin/create_user.css">
+{% endblock %}
+
+{% block content %}
+    <div class="create-wrapper">
+        <div class="create-form">
+
+            <h1 class="create-form__header">Новый пользователь</h1>
+
+            <form method="post" name="user_form" class="user-create-form" id="crateForm">
+                {{ fields.input(label="Имя", id="name", name="name", placeholder="Имя", required=True) }}
+                {{ fields.input(label="Фамилия", id="surname", name="surname", placeholder="Фамилия", required=True) }}
+                {{ fields.input(label="Логин", id="login", name="login", placeholder="Логин", required=True) }}
+                {{ fields.input(label="Пароль", id="password", name="password", placeholder="Пароль", type="password", required=True) }}
+            </form>
+
+            <button class="create-form-button accent" form="createForm">Создать пользователя</button>
+        </div>
+    </div>
+{% endblock %}

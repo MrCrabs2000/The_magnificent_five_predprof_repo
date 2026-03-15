@@ -1,0 +1,29 @@
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.profile {
+    width: 350px;
+    padding: 8px 16px 16px 16px;
+}
+
+
+.profile__fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+.profile__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 12px;
+    padding: 0;
+}
