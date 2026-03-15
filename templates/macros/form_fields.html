@@ -1,0 +1,49 @@
+{% macro input(id="", name="", label="", type="text", placeholder="", value="", readonly=False, required=False) %}
+    <div class="form-field">
+        {% if label %}
+            <label for="{{ id }}" class="form-field__label">{{ label }}</label>
+        {% endif %}
+
+        <input class="form-field__input" id="{{ id }}" name="{{ name }}" type="{{ type }}" placeholder="{{ placeholder }}" value="{{ value }}"
+            {% if readonly %}
+                readonly
+            {% endif %}
+            {% if required %}
+                required
+            {% endif %}>
+    </div>
+{% endmacro %}
+
+
+{% macro checkbox(checked=False, label="", name="", id="") %}
+    <div class="form-field">
+        <label class="checkbox" id="{{id}}">
+            <input type="checkbox" id="{{id}}Input" name="{{ name }}"
+            {% if checked %}
+                checked
+            {% endif %}>
+    
+            <div class="checkbox__body">
+                <span class="material-symbols-rounded">
+                    check
+                </span> 
+            </div>
+    
+            {{ label }}
+        </label>
+    </div>
+{% endmacro %}
+
+
+{% macro radio_button(checked=False, label="") %}
+    <div class="form-field">
+        <label class="radio-button">
+            <input type="radio" name="radio"
+            {% if checked %}
+                checked
+            {% endif %}>
+    
+            {{ label }}
+        </label>
+    </div>
+{% endmacro %}
