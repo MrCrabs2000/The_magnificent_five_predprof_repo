@@ -47,13 +47,6 @@
     font-size: 18px;
 }
 
-.auth-form__link {
-    margin: 0;
-    margin-top: 12px;
-    padding: 0;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
 
 .flash-text {
     color: red;

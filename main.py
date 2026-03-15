@@ -2,7 +2,7 @@ from flask_security import current_user
 from flask import render_template, redirect
 from pathlib import Path
 
-from routs.routs import register_all_blueprints
+from routes.routes import register_all_blueprints
 from configs.configs import app
 from utils.migrate import drop_alembic_version_table, update_database
 from database.init_db import create_initial_admin
