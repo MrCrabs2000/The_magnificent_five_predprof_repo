@@ -3,7 +3,7 @@ from database.classes import db, User, Role
 import uuid
 
 
-def create_initial_admin(app, login_admin='test_admin', password_admin='test_password'):
+def create_initial_admin(app, login_admin='admin', password_admin='password'):
     with app.app_context():
         admin_role = Role.query.filter_by(name='admin').first()
         if not admin_role:
@@ -19,8 +19,11 @@ def create_initial_admin(app, login_admin='test_admin', password_admin='test_pas
 
         if not User.query.filter_by(login='admin').first():
             new_admin = User(
+                name='Admin',
+                surname='Admin',
                 login=login_admin,
                 password=generate_password_hash(password_admin),
+                role=admin_role,
                 active=True,
                 fs_uniquifier=str(uuid.uuid4())
             )

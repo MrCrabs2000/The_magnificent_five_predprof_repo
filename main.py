@@ -1,11 +1,11 @@
 from flask_security import current_user
-from flask import render_template, redirect
+from flask import redirect
 from pathlib import Path
 
 from routes.routes import register_all_blueprints
 from configs.configs import app
 from utils.migrate import drop_alembic_version_table, update_database
-from database.init_db import create_initial_admin
+from configs.init_db import create_initial_admin
 
 
 register_all_blueprints(app)
@@ -23,10 +23,14 @@ except Exception as e:
     print(f'У нас ошибка в функции поймана:{e}')
 
 
-@app.route('/')
-def main():
+@app.route('/', methods=['GET', 'POST'])
+def inition():
     if current_user.is_authenticated:
-        return render_template('main.html')
+        if current_user.roles[0].name == 'user':
+            return redirect('/user/main')
+        elif current_user.roles[0].name == 'admin':
+            return redirect('/admin/main')
+
     return redirect('/login')
 
 

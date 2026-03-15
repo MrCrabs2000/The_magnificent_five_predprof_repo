@@ -1,20 +1,18 @@
-from flask_security import login_user, current_user
 from flask import Blueprint, request, render_template, redirect
-from flask_security import roles_required
+from flask_security import roles_required, login_required
 import uuid
 from werkzeug.security import generate_password_hash
-
 from database.classes import db, User, Role
 
 
 admin_page = Blueprint('admin_page', __name__, template_folder='templates')
 
-
-@admin_page.route('/create_user', methods=['GET', 'POST'])
+@admin_page.route('/admin/main', methods=['GET', 'POST'])
+@login_required
 @roles_required('admin')
 def create_user():
     if request.method == 'GET':
-        return render_template('auth/admin.html')
+        return render_template('admin/create_user.html')
 
     login = request.form.get('login')
     password = request.form.get('password')
@@ -39,4 +37,3 @@ def create_user():
     db.session.commit()
 
     return redirect('/')
-
