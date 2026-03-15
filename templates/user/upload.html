@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+
+{% import 'macros/form_fields.html' as fields  %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/user/upload.css">
+    <link rel="stylesheet" href="/static/css/macros/form_fields.css">
+{% endblock %}
+
+
+{% block content %}
+    <div class="upload-wrapper">
+        <div class="upload block">
+            <h1 class="upload__title">Загрузка данных</h1>
+            {{ fields.file_input(id="dataUpload", accept=".npz") }}
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="/static/js/fileInput.js"></script>
+{% endblock %}

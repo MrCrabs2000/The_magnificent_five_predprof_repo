@@ -15,6 +15,17 @@
 {% endmacro %}
 
 
+{% macro file_input(id="", name="", label="", placeholder="", value="", accept="", required=False) %}
+    <div class="form-field">
+        <div class="file-input">
+            <input type="file" style="display: none;" id="{{ id }}" accept="{{ accept }}">
+            <input class="file-input__file" placeholder="Нет файлов" readonly></input>
+            <label class="file-input__button button accent" for="{{ id }}">Загрузить</label>
+        </div>
+    </div>
+{% endmacro %}
+
+
 {% macro checkbox(checked=False, label="", name="", id="") %}
     <div class="form-field">
         <label class="checkbox" id="{{id}}">
