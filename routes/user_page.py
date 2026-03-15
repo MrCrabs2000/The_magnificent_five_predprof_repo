@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from flask_security import roles_accepted, current_user
+from flask_security import roles_accepted
 from database.classes import db
 from configs.configs import login_required
 from model import load_data

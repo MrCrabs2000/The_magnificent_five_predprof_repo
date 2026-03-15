@@ -52,7 +52,7 @@ class Record(db.Model):
     civilization = db.relationship('Civilization', secondary='civilization_records', back_populates='records')
 
 
-class  AssociationCivilizationRecord(db.Model):
+class AssociationCivilizationRecord(db.Model):
     __tablename__ = 'civilization_records'
 
     civilization_id = db.Column(db.Integer, db.ForeignKey('civilizations.id', name='civilizationrecords_civilizations', ondelete='CASCADE'), primary_key=True)

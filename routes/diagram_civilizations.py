@@ -2,7 +2,7 @@ from flask import Blueprint, render_template
 from flask_security import roles_accepted
 from configs.configs import login_required
 from database.classes import Civilization
-from graphs import
+from graph import top5_class_chart
 
 
 diagram_civilizations = Blueprint('diagram_civilizations', __name__, template_folder='templates')
@@ -11,6 +11,6 @@ diagram_civilizations = Blueprint('diagram_civilizations', __name__, template_fo
 @roles_accepted('user')
 def diagram_civilizations():
     context = {
-        'diagram': ,
+        'diagram': top5_class_chart(data),
     }
     return render_template('main.html', **context)

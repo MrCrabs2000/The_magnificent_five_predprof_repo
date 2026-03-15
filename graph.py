@@ -1,5 +1,4 @@
 import numpy as np
-print(np.version.version)
 import matplotlib.pyplot as plt
 from pathlib import Path
 
@@ -56,7 +55,7 @@ def create_graph(y,
 
 
 def create_chart(data,
-                 chart_type='bar',  # 'bar' (столбчатая) или 'pie' (круговая)
+                 chart_type='bar',
                  title='Диаграмма',
                  filename='chart.png',
                  transparent=False):
@@ -111,19 +110,3 @@ def accuracy_determination_chart(data, filename='chart.png'):
 def top5_class_chart(data, filename='chart.png'):
     selected_data = dict(sorted(data.items(), key=lambda item: item[1])[-5:])
     return civilization_records_chart(data=selected_data, filename=filename, top5=True)
-
-
-if __name__ == '__main__':
-    # Примеры
-
-    # График зависимости точности
-    # data_accuracy_graph({1: 5, 2: 6, 5: 10})
-
-    # Диаграмма записей по цивилизациям
-    # civilization_records_chart({'1': 100, '2': 1000, '3': 900, '4': 200, '5': 300, '6': 800, '7': 700, '8': 500, '9': 400, '10': 600})
-
-    # Диаграмма точностей определения записей
-    # accuracy_determination_chart({"Первая": 90, "Третья": 60, "Последняя": 35})
-
-    # Топ-5 классов по записям (принимает все и выбирает 5 лучших)
-    # top5_class_chart({'1': 100, '2': 1000, '3': 900, '4': 200, '5': 300, '6': 800, '7': 700, '8': 500, '9': 400, '10': 600})

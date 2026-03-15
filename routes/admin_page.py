@@ -6,7 +6,6 @@ from database.classes import db, User, Role
 
 
 admin_page = Blueprint('admin_page', __name__, template_folder='templates')
-
 @admin_page.route('/admin/main', methods=['GET', 'POST'])
 @login_required
 @roles_required('admin')
@@ -23,7 +22,7 @@ def create_user():
     user = db.session.query(User).filter_by(login=login).first()
 
     if not all([login, password, name, surname]) or len(password) < 6 or user:
-        return redirect('/')
+        return redirect('/admin/main')
 
     fs_uniquifier = str(uuid.uuid4())
 
@@ -36,4 +35,4 @@ def create_user():
     db.session.add(new_user)
     db.session.commit()
 
-    return redirect('/')
+    return redirect('/admin/main')
