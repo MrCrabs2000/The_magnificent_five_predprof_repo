@@ -19,7 +19,7 @@ try:
 
 except Exception as e:
     print(f'У нас ошибка в функции поймана:{e}')
-
+    
 
 @app.route('/')
 def main():
