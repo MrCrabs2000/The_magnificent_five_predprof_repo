@@ -15,7 +15,7 @@ def user_page():
             'data': load_data(),
         }
 
-        return render_template('', **context)
+        return render_template('user/upload.html', **context)
 
     finally:
         db.session.close()
